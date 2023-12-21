@@ -68,7 +68,7 @@ header {
 }
 header p {
     font-family: 'Times New Roman';    
-    font-size: xx-large;
+    font-size: 2.0em;
     margin: 1px;
     padding: 10px;
 }
@@ -92,13 +92,13 @@ header #basket {
     border-radius: 5px;
 }
 header #basket:hover {
-    background-color: white; /* Darker shade of green on hover */
+    background-color: darkgreen;
     color: white;
 }
 
 #quote {
     text-align: center;
-    font-size: 1.5em; /* Adjust the font size as needed */
+    font-size: 1.5em;
 }
 
 #quote em {
