@@ -1,2 +1,4 @@
 # BlokB-Boerencamping
-Website
+Website SolarCamp
+
+The first version of SolarCamp Website has been released on (21/12/2023-18:00 NZ-Time)
