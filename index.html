@@ -3,55 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Campsite Booking</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Error 404: SolarCamp</title>
 </head>
 <body>
+
     <header>
-        <h1>Campsite Booking</h1>
+        <p>SolarCamp</p>
         <nav>
-            <button onclick="showBookingForm()">Booking</button>
-            <button onclick="showAvailabilityCheck()">Availability</button>
+            <a href="#">Merch</a>
+            <a href="#">Newstand</a>
+            <a href="#">Who we are</a>
+            <a href="#">Bookings</a>
+            <a id="basket" href="#">Basket</a>
         </nav>
     </header>
 
-    <main>
-        <section id="booking-form">
-            <h2>Book a Space</h2>
-            <!-- Add your booking form elements here -->
-        </section>
+    <div id="quote">
+        <p>
+            We're <em>campers</em>, <em>farmers</em>, and <em>eaters</em> of<br>
+            organically grown food.
+        </p>
+    </div>
 
-        <section id="availability-check">
-            <h2>Check Availability</h2>
-            <!-- Add your availability check elements here -->
-        </section>
-    </main>
+    <a id="browse-button" href="#">Browse our spots</a>
 
-    <footer>
-        <p>&copy; 2023 Campsite Booking</p>
-    </footer>
-
-    <script>
-        // JavaScript function to hide both sections initially
-        function hideBothSections() {
-            document.getElementById('booking-form').style.display = 'none';
-            document.getElementById('availability-check').style.display = 'none';
-        }
-
-        // JavaScript function to show the booking form and hide the availability check
-        function showBookingForm() {
-            hideBothSections(); // Hide both sections first
-            document.getElementById('booking-form').style.display = 'block';
-        }
-
-        // JavaScript function to show the availability check and hide the booking form
-        function showAvailabilityCheck() {
-            hideBothSections(); // Hide both sections first
-            document.getElementById('availability-check').style.display = 'block';
-        }
-
-        // Call the hideBothSections function when the page loads
-        document.addEventListener('DOMContentLoaded', hideBothSections);
-    </script>
 </body>
 </html>
