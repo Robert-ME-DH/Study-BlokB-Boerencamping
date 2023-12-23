@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    height: 100vh;
+    height: 200vh;
     margin: 1px;
     padding: 0;
 }
@@ -60,70 +60,96 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
-    margin: 1px;
-    padding: 10px;
+    margin: 0px;
+    padding: 10px 20px;
 }
-header p {
-    font-size: 1.6em;
-    margin: 1px;
-    padding: 10px 50px;
-}
-header a {
-    font-size: 1.0em;
+
+header #home-button {
+    font-size: 2em;
     text-decoration: none;
     color: #426B1F;
+    margin: 0px;
+    padding: 15px 25px;
 }
-header a:hover {
-    color: darkgreen;
-}
+
 header nav {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
-header nav a {
-    font-size: 1.0em;
-    margin: 0px 25px;
+header #normal-button {
+    font-size: 1.5em;
     text-decoration: none;
-    color: #333;
+    margin: 10px 30px;
 }
-header nav a:hover {
+header #normal-button:hover {
     color: darkgreen;
 }
-header #basket {
+header #basket-button {
     background-color: darkgreen;
     color: white;
-    font-weight: bold;
+    font-size: 2em;
+    text-decoration: none;
+    margin: 10px 25px;
     padding: 5px 10px;
     border-radius: 5px;
 }
-header #basket:hover {
-    background-color: darkgreen;
-    color: white;
-}
 
-#quote {
+#solarcamp-quote {
     text-align: center;
-    font-size: 2.5em;
-}
-
-#quote em {
-    font-style: italic;
+    font-size: 3em;
 }
 
 #browse-button {
-    font-size: 1.0em;
-    display: inline-block;
+    font-size: 1.5em;
     margin: 20px auto;
     padding: 10px 20px;
     background-color: darkgreen;
     color: white;
-    text-align: center;
     text-decoration: none;
     border-radius: 5px;
 }
 
-#browse-button:hover {
-    background-color: darkgreen; /* Darker shade of green on hover */
+#camping-images-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.image-container {
+    margin-top: 150px;
+    text-align: center;
+}
+
+#vogue-vegetables-image {
+    transform: rotate(90deg);
+    width: 750px;
+}
+#vogue-vegetables-image-quote {
+    margin-top: 80px;
+    font-style: normal;
+}
+
+#vogue-camping-image {
+    width: 775px;
+}
+#vogue-camping-image-quote {
+    margin-top: 5px;
+    font-style: normal;
+}
+
+#who-we-are-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#who-we-are-title {
+    text-align: center;
+    font-size: 3em;
+    padding-top: 10px;
+    border-top: 1px solid white;
+}
+
+#who-we-are-paragraph {
+    text-align: left;
+    font-size: 1.5em;
 }
