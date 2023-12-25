@@ -67,9 +67,13 @@ header {
 header #home-button {
     font-size: 2em;
     text-decoration: none;
-    color: #426B1F;
+    color: black;
     margin: 0px;
     padding: 15px 25px;
+}
+header #home-button:hover {
+    color: #426B1F;
+    transition: color 250ms ease-in 25ms;
 }
 
 header nav {
@@ -77,12 +81,14 @@ header nav {
     align-items: center;
 }
 header #normal-button {
+    color: black;
     font-size: 1.5em;
     text-decoration: none;
     margin: 10px 30px;
 }
 header #normal-button:hover {
     color: darkgreen;
+    transition: color 250ms ease-in 25ms;
 }
 header #basket-button {
     background-color: darkgreen;
@@ -94,9 +100,18 @@ header #basket-button {
     border-radius: 5px;
 }
 
-#solarcamp-quote {
+#solarcamp-pagebreak {
     text-align: center;
+}
+#solarcamp-title {
     font-size: 3em;
+    padding-top: 10px;
+    border-top: 1px solid white;
+}
+#solarcamp-quote {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #browse-button {
@@ -136,20 +151,17 @@ header #basket-button {
     font-style: normal;
 }
 
-#who-we-are-container{
+#camping-paragraphs-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-#who-we-are-title {
-    text-align: center;
-    font-size: 3em;
-    padding-top: 10px;
-    border-top: 1px solid white;
-}
-
-#who-we-are-paragraph {
-    text-align: left;
-    font-size: 1.5em;
+.paragraph-container{
+    display: flex;
+    font-style: italic;
+    font-size: 1.1em;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
 }
