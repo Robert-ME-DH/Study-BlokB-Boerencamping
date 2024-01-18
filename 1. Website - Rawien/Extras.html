@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .banner {
+        background-color: #3498db; /* Choose your background color */
+        color: #ffffff; /* Choose your text color */
+        padding: 10px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+      }
+    </style>
+    <title>De groene weide</title>
+  </head>
+  <body>
+    <div class="banner">Welcome to boeren camping de groene weide!</div>
+<br>
+
+    
+<button><div class="floating-button">
+  <a href="http://127.0.0.1:5500/Reservering.html" 
+  target="_parent">Reserveer hier</a>
+</div>
+</button>
+
+<button><div class="floating-button">
+    <a href="http://127.0.0.1:5500/front%20page.html" 
+    target="_parent">Home</a>
+  </div>
+  </button>
+
+</head>
+<body>
+ 
+    <style>
+     
+        
+        body {
+            /* Set background properties */
+            background-image: url('images/meadow.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: block; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: rgb(250, 246, 246); /* Text color, change as needed */
+            font-family: Arial, sans-serif; /* Specify font-family */
+        }
+        
+
+        /* Optional: Add styles for the content on top of the background */
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <style>
+        .image-container {
+          display: flex;
+        }
+    
+        .image-container img {
+          max-width: 20%; /* Ensure images don't exceed their container width */
+          height: auto; /* Maintain aspect ratio */
+          margin-right: 10px;
+          margin-left: auto;
+          /* Add some space between the images (adjust as needed) */
+        }
+      </style>
+   
+    <style>
+      .slideshow-container {
+        max-width: 600px;
+        position: relative;
+        margin: auto;
+      }
+
+      .mySlides {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        cursor: pointer;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border: none;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    </style>
+    <title>Automatic Image Slideshow</title>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="mySlides">
+        <img src="images/zwembad.jpg" alt="Image 1" />
+        <div class="text-overlay"><h1>Zwembad</div></h1>
+      </div>
+
+      <div class="mySlides">
+        <img src="images/gym.jpg" alt="Image 2" />
+        <div class="text-overlay"><h1>Gym</div></h1>
+      </div>
+
+      <div class="mySlides">
+        <img src="images/Sauna.jpg" alt="Image 3" />
+        <div class="text-overlay"><h1>Sauna</div></h1>
+      </div>
+
+      <div class="mySlides">
+        <img src="images/massage.jpg" alt="Image 4" />
+        <div class="text-overlay"><h1>Massage</div></h1>
+      </div>
+
+
+      <!-- Add more slides as needed -->
+
+      
+
+     
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+      }
+
+      // Automatic slideshow with a 3-second interval
+      setInterval(function () {
+        plusSlides(1);
+      }, 8000);
+    </script>
+
+
+  </body>
+</html>
+
+
+
