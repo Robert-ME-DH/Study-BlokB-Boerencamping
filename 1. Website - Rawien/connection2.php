@@ -16,15 +16,15 @@ try {
     $email = $_POST["email"];
     $begindatum = $_POST["date1"];
     $einddatum = $_POST["date2"];
-    $volwassenen = $_POST["volwassenen"];  // Assuming you have a 'volwassenen' field in your form
+      // Assuming you have a 'volwassenen' field in your form
     $kinderen = $_POST["kinderen"];        // Assuming you have a 'kinderen' field in your form
 
-    $stmt = $conn->prepare("INSERT INTO customerform (Naam, Email, Begindatum, Einddatum, Volwassenen, Kinderen) VALUES (:name, :email, :begindatum, :einddatum, :volwassenen, :kinderen)");
+    $stmt = $conn->prepare("INSERT INTO customerform (Naam, Email, Begindatum, Einddatum, Kinderen) VALUES (:name, :email, :begindatum, :einddatum, :kinderen)");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':begindatum', $begindatum);
     $stmt->bindParam(':einddatum', $einddatum);
-    $stmt->bindParam(':volwassenen', $volwassenen);
+   
     $stmt->bindParam(':kinderen', $kinderen);
 
     // Execute the prepared statement
