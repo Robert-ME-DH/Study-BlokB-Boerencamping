@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Res3</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Bookings Calendar</h2>
+      <div id="calendar"></div>
+      <p>Selected dates: <span id="selected-dates"></span></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #6d4545;
+  }
+
+  #app {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+
+  .day {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .selected {
+    background-color: #add8e6; /* Light blue for selected dates */
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const calendarContainer = document.getElementById("calendar");
+    const selectedDatesElement = document.getElementById("selected-dates");
+    const selectedDates = new Set();
+    let startDate = null;
+
+    // Function to toggle the selected state of a date
+    function toggleDateSelection(dateCell) {
+      const date = dateCell.dataset.date;
+
+      if (!startDate) {
+        startDate = date;
+      } else {
+        const endDate = date;
+        const datesToHighlight = getDatesBetween(startDate, endDate);
+        datesToHighlight.forEach((date) => {
+          const dateCell = document.querySelector(`[data-date="${date}"]`);
+          if (dateCell) {
+            dateCell.classList.add("in-between");
+          }
+        });
+        startDate = null;
+      }
+
+      if (selectedDates.has(date)) {
+        selectedDates.delete(date);
+        dateCell.classList.remove("selected");
+      } else {
+        selectedDates.add(date);
+        dateCell.classList.add("selected");
+      }
+
+      updateSelectedDatesText();
+    }
+
+    // Function to update the text displaying selected dates
+    function updateSelectedDatesText() {
+      selectedDatesElement.textContent = [...selectedDates].join(", ");
+    }
+
+    // Function to create a calendar for the current month
+    function createCalendar() {
+      const currentDate = new Date();
+      const firstDayOfMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        1
+      );
+      const lastDayOfMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() + 1,
+        0
+      );
+      const daysInMonth = lastDayOfMonth.getDate();
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateCell = document.createElement("div");
+        dateCell.classList.add("day");
+        dateCell.textContent = day;
+        dateCell.dataset.date = `${currentDate.getFullYear()}-${
+          currentDate.getMonth() + 1
+        }-${day}`;
+
+        dateCell.addEventListener("click", function () {
+          toggleDateSelection(dateCell);
+        });
+
+        calendarContainer.appendChild(dateCell);
+      }
+    }
+
+    // Function to get dates between two dates
+    function getDatesBetween(startDate, endDate) {
+      const dates = [];
+      const current = new Date(startDate);
+      const end = new Date(endDate);
+
+      while (current <= end) {
+        dates.push(current.toISOString().split("T")[0]);
+        current.setDate(current.getDate() + 1);
+      }
+
+      return dates;
+    }
+
+    // Call the function to generate the calendar
+    createCalendar();
+  });
+</script>

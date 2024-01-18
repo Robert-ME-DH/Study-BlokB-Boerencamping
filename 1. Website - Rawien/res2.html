@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Calendar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+      }
+
+      .day {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .selected {
+        background-color: #aee5ff;
+      }
+
+      .range {
+        background-color: #aee5ff;
+      }
+
+      .reservation-form {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reservation Calendar</h1>
+
+    <div id="calendar" class="calendar"></div>
+
+    <div class="reservation-form">
+      <label for="selectedDate">Selected Date:</label>
+      <input type="date" id="selectedDate" onchange="highlightSelectedDate()" />
+    </div>
+
+    <script>
+      const calendar = document.getElementById("calendar");
+      const selectedDateInput = document.getElementById("selectedDate");
+      let selectedDate = null;
+
+      function createCalendar() {
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        // Add days of the week header
+        for (const day of daysOfWeek) {
+          const header = document.createElement("div");
+          header.textContent = day;
+          calendar.appendChild(header);
+        }
+
+        // Add days of the month
+        for (let day = 1; day <= 31; day++) {
+          const dayElement = document.createElement("div");
+          dayElement.textContent = day;
+          dayElement.classList.add("day");
+          dayElement.addEventListener("click", () => selectDate(day));
+          calendar.appendChild(dayElement);
+        }
+      }
+
+      function selectDate(day) {
+        const selectedDay = new Date();
+        selectedDay.setDate(day);
+        selectedDate = selectedDay;
+        highlightSelectedDate();
+      }
+
+      function highlightSelectedDate() {
+        const days = document.querySelectorAll(".day");
+        days.forEach((day) => {
+          day.classList.remove("selected");
+          const dayNumber = parseInt(day.textContent);
+
+          if (selectedDate && dayNumber === selectedDate.getDate()) {
+            day.classList.add("selected");
+          }
+        });
+      }
+
+      createCalendar();
+    </script>
+  </body>
+</html>
