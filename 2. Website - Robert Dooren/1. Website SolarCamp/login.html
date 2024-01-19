@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Login Page</title>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <p>
+            <a class="logo" href="index.html">SolarCamp</a>
+        </p>
+        <nav>
+            <a class="nav-button" href="#">Who we are</a>
+            <a class="nav-button" href="#">Newstand</a>
+            <a class="nav-button" href="register.html">Register</a>
+            <a class="nav-button" href="login.html">Log in</a>
+            <a class="basket-button" href="#">Basket</a>
+        </nav>
+    </header>
+
+    <h2>Login</h2>
+    <form action="login.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Betalings pagina</title>
+  </head>
+  <body>
+
+<br>
+<br>
+<br>
+
+
+
+</head>
+<body>
+
+ 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #step-overview {
+            display: flex;
+            width: 700px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .step:not(:last-child) {
+            border-right: 1px solid #fff;
+        }
+
+        .step.active {
+            background-color: #004080;
+        }
+
+        #step-text {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #007bff;
+        }
+    </style>
+    <title>Step Overview Bar</title>
+</head>
+<body>
+    <div id="step-overview">
+        <button><a href="http://127.0.0.1:5500/home.html" 
+            target="_parent">Home page</a></button>
+        
+       <button><a href="http://127.0.0.1:5500/Reservering.html" 
+        target="_parent">Reserverings page</a></button> 
+        
+        <div class="step active">Betalings pagina</div>
+        <div class="step">Afronden reservering</div>
+        
+    </div>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.step');
+            const stepText = document.getElementById('step-text');
+
+            steps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    // Reset all steps to inactive
+                    steps.forEach(s => s.classList.remove('active'));
+
+                    // Activate the clicked step
+                    step.classList.add('active');
+
+                    // Update step text
+                    stepText.textContent = `Step ${index + 1}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+ 
+    <style>
+     
+        
+        body {
+            /* Set background properties */
+            background-image: url('images/cabin.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: block; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: rgb(249, 247, 247); /* Text color, change as needed */
+            font-family: Arial, sans-serif; /* Specify font-family */
+        }
+        
+
+        /* Optional: Add styles for the content on top of the background */
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+  <style>
+      
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <br>
+  <br>
+ 
+ 
+
+  <body>
+    <form id="menuForm">
+      <label for="Slapen">Kies bank:</label>
+      <select id="slapen" name="slapen">
+        <option value="spaghetti">ING</option>
+        <option value="pizza">Rabo Bank</option>
+        <option value="burger">ABN Amro bank</option>
+        <option value="burger">Regio Bank</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="Extras">Betaalwijze:</label>
+      <select id="extra" name="extras">
+        <option value="cake">Overmaking</option>
+        <option value="iceCream">Aan het loket</option>
+        
+        <!-- Add more options as needed -->
+      </select>
+
+      <button>
+        <a href="http://127.0.0.1:5500/Overzicht%20pagina.html" 
+        target="_parent">Afronden reservering</a>
+      </div>
+      </button>
+
+      
+        </a>
+      </button>
+    </form>
+  </body>
+</html>
+
+

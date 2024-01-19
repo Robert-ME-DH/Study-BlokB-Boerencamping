@@ -1,0 +1,212 @@
+:root {
+    /* ALL Colors */ 
+    /* Default Colors */
+    --d-c-white: #fff;                          /*Name: Default-Color-White */
+    --d-c-jet: #333;                            /*Name: Default-Color-Jet */
+    --d-c-orange-aerospace: #FF4F00;            /*Name: Default-Color-Orange-Aerospace */
+    --d-c-black: #000;                          /*Name: Default-Color-Black */
+    --d-c-battleship-gray: #848482;             /*Name: Default-Color-Battleship-Gray */
+    --d-c-silver: #CCCCCC;                      /*Name: Default-Color-Silver */
+    --d-c-seasalt: #f7f7f7;                     /*Name: Default-Color-Seasalt */
+
+    /* Font Colors */
+    --f-c-p: var(--d-c-black);                    /* Name: Font-Color-Primary */
+    --f-c-s: var(--d-c-white);                    /* Name: Font-Color-Secondary */
+    --f-c-t: var(--d-c-orange-aerospace);         /* Name: Font-Color-Tertiary */
+
+    /* Border Colors */
+    --b-c-p: var(--d-c-jet);                      /* Name: Border-Color-Primary */
+    --b-c-s: var(--d-c-silver);                   /* Name: Border-Color-Secondary */
+
+    /* Heading Colors */
+    --h2-b-c: var(--b-c-p);                       /* Name: Heading2-Border-Color */
+
+    /* Header Colors */
+    --h-bg-c: var(--d-c-jet);                     /* Name: Header-Background-Color */
+    --h-f-c: var(--f-c-s);                        /* Name: Header-Font-Color */
+    --h-a-f-c: var(--f-c-s);                      /* Name: Header-Anchor-Font-Color */
+    --h-a-h-f-c: var(--d-c-orange-aerospace);     /* Name: Header-Anchor-Hover-Font-Color */
+
+    /* Navigation Colors */
+    --n-a-f-c: var(--d-c-jet);                    /* Name: Navigation-Anchor-Font-Color */
+    --n-a-a-bg-c: var(--f-c-t);                   /* Name: Navigation-Anchor-After-Background-Color */
+
+    /* Primary Information Blocks Colors */
+    --p-i-b-1-bg-c: var(--d-c-seasalt);           /* Name: Primary-Information-Block-1-Background-Color */
+    --p-i-b-2-bg-c: var(--d-c-white);             /* Name: Primary-Information-Block-2-Background-Color */
+
+    /* Secondary Information Blocks Colors */
+    --s-i-b-a-bg-c: var(--d-c-orange-aerospace);  /* Name: Secondary-Information-Block-Anchor-Background-Color */
+    --s-i-b-a-h-bg-c: var(--d-c-jet);             /* Name: Secondary-Information-Block-Anchor-Hover-Background-Color*/
+
+    /* Footer Colors*/
+    --f-bg-c: var(--d-c-jet);                     /* Name: Footer-Background-Color */
+    --f-f-c: var(--f-c-s);                        /* Name: Footer-Font-Color */
+
+    /* TEST */
+
+}
+
+/*-----------------------------------------------------------------*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 200vh;
+    margin: 1px;
+    padding: 0;
+}
+
+/*-----------------------------------------------------------------*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+header .logo {
+    font-size: 2em;
+    text-decoration: none;
+    color: black;
+    padding: 15px 25px;
+}
+header .logo:hover {
+    color: #426B1F;
+    transition: color 250ms ease-in 25ms;
+}
+header nav {
+    display: flex;
+    align-items: center;
+}
+header .nav-button {
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+    margin: 10px 30px;
+}
+header .nav-button:hover {
+    color: darkgreen;
+    transition: color 250ms ease-in 25ms;
+}
+header .basket-button {
+    background-color: darkgreen;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    margin: 10px 25px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/*-----------------------------------------------------------------*/
+
+#solarcamp-introduction-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+#solarcamp-quote {
+    font-size: 3em;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.browse-button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background-color: darkgreen;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/*-----------------------------------------------------------------*/
+
+#camping-images-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.vertical-image-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+}
+.horizontal-image-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 400px;
+}
+.image-container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+/*-----------------------------------------------------------------*/
+
+#solarcamp-title-pagebreak {
+    text-align: center;
+    font-size: 3em;
+}
+
+/*-----------------------------------------------------------------*/
+
+#camping-paragraph-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.paragraph{
+    display: flex;
+    font-style: italic;
+    font-size: 1.1em;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/*-----------------------------------------------------------------*/
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Reserverings pagina</title>
+  </head>
+  <body>
+<Br>
+<br>
+<br>
+</Br>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #step-overview {
+            display: flex;
+            width: 700px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .step:not(:last-child) {
+            border-right: 1px solid #fff;
+        }
+
+        .step.active {
+            background-color: #004080;
+        }
+
+        #step-text {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #007bff;
+        }
+    </style>
+    <title>Step Overview Bar</title>
+</head>
+<body>
+    <div id="step-overview">
+      <button><a href="index.html" 
+        target="_parent">Home page</a></button>     
+      
+        <div class="step active">Reservering</div>
+        <div class="step">Betalings pagina</div>
+        <div class="step">Afronden reservering</div>
+        
+    </div>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.step');
+            const stepText = document.getElementById('step-text');
+
+            steps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    // Reset all steps to inactive
+                    steps.forEach(s => s.classList.remove('active'));
+
+                    // Activate the clicked step
+                    step.classList.add('active');
+
+                    // Update step text
+                    stepText.textContent = `Step ${index + 1}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+ 
+    <style>
+     
+        
+        body {
+            /* Set background properties */
+            background-image: url('images/cabin.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: block; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: rgb(249, 247, 247); /* Text color, change as needed */
+            font-family: Arial, sans-serif; /* Specify font-family */
+        }
+        
+
+        /* Optional: Add styles for the content on top of the background */
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+      
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 20px auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+   
+    
+   <head>
+    <body>
+      
+   
+  </head>
+  <body>
+    <form action="connection2.php" method="post" id="reservationForm">
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+
+      <label for="date1">Begin datum:</label>
+      <input type="date" id="date1" name="date1" />
+
+      <label for="date2">Eind datum:</label>
+      <input type="date" id="date2" name="date2" />
+
+      <!--<label for="email">Volwassenen:</label>
+      <input type="text" id="Volwassenen" name="Volwassenen" />-->
+
+      <label for="email">Volwas./Kind.:</label>
+      <input type="text" id="kinderen" name="kinderen" />
+
+  
+        <label for="Extras">Faciliteiten:</label>
+        <select id="extra" name="extras">
+          <option value="zwembad">Zwembad (10 euro)</option>
+          <option value="geenzwembad">Geen zwembad</option>
+          <!--<option value="pie">Sauna (20 euro)</option>
+          <option value="pie">Massage (30 euro)</option>
+          <-- Add more options as needed -->
+        </select>
+
+        <button type="submit"> submit info</button>
+        
+
+        <!-- <button><div class="floating-button">
+          <a href="http://127.0.0.1:5500/Betalings%20pagina.html?slapen=spaghetti&extras=cake" 
+          target="_parent">Betalings pagina</a>
+        </div>
+        </button> -->
+
+        <!--<form id="menuForm">
+        <label for="Slapen">Kies slaap optie:</label>
+        <select id="slapen" name="slapen">
+          <option value="spaghetti">Tent 2x2 (50 euro)</option>
+          <option value="pizza">Tent 4x4 (100 euro)</option>
+          <option value="burger">Tent 6x6 (150 euro)</option>
+          <option value="burger">Eigen tent (geen kosten)</option>
+          <!-- Add more options as needed -->
+        </select>
+  
+    </form>
+
+    <script>
+      function submitReservation() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const date1 = document.getElementById("date 1").value;
+         //const date2 = document.getElementById("date 2").value;
+        // const date = document.getElementById("Slapen").value;
+        // const date = document.getElementById("Extras").value;
+        
+
+        // You can perform additional validation here if needed
+
+        alert(
+          `Reservation Details:\nName: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${time}`
+        );
+        // You can send the reservation data to a server or perform other actions here
+      }
+    </script>
+  </body>
+</html>
+
+
+    
