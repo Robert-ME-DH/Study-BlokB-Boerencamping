@@ -221,6 +221,56 @@
         // You can send the reservation data to a server or perform other actions here
       }
     </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-selectable Datums</title>
+    <style>
+        .non-selectable {
+            color: #999; /* Stijl voor non-selecteerbare datums */
+            pointer-events: none; /* Maak non-selecteerbaar */
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            var currentDate = new Date();
+            var currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+          
+            var datepicker = document.getElementById('date1');
+            v
+            
+            datepicker.min = currentDateString;
+
+            datepicker.addEventListener('input', function() {
+                var selectedDate = new Date(this.value);
+                var allDates = document.querySelectorAll('input[type="date"]');
+                
+                allDates.forEach(function(date) {
+                    var dateObj = new Date(date.value);
+                    
+                    if (dateObj < currentDate) {
+                        date.classList.add('non-selectable');
+                    } else {
+                        date.classList.remove('non-selectable');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
   </body>
 </html>
 
