@@ -248,15 +248,6 @@
                 
                 allDates.forEach(function(date) {
                     const dateObj = new Date(date.value);
-
-                    if (vertrekDatum.getFullYear() > currentDate.getFullYear()) {
-    alert('U kunt niet in het volgende jaar reserveren. Selecteer een geldige vertrekdatum.');
-    event.preventDefault(); // Voorkom het indienen van het formulier
-  } else if (vertrekDatum > maxVertrekDatum) {
-    alert('U kunt maximaal voor één maand reserveren. Selecteer een geldige vertrekdatum.');
-    event.preventDefault(); // Voorkom het indienen van het formulier
-  }
-});
                     
                     if (dateObj < currentDate) {
                         date.classList.add('non-selectable');
@@ -265,7 +256,15 @@
                     }
                 });
             });
-        
+
+            if (date2.getFullYear() > currentDate.getFullYear()) {
+    alert('U kunt niet in het volgende jaar reserveren. Selecteer een geldige vertrekdatum.');
+    event.preventDefault(); // Voorkom het indienen van het formulier
+  } else if (date2 > maxdate2) {
+    alert('U kunt maximaal voor één maand reserveren. Selecteer een geldige vertrekdatum.');
+    event.preventDefault(); // Voorkom het indienen van het formulier
+  }
+});
 
         
         
