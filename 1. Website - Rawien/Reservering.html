@@ -54,63 +54,38 @@
             color: #007bff;
         }
     </style>
-    <title>Step Overview Bar</title>
-</head>
-<body>
-    <div id="step-overview">
-      <button><a href="index.html" 
-        target="_parent">Home page</a></button>     
-      
-        <div class="step active">Reservering</div>
-        <div class="step">Betalings pagina</div>
-        <div class="step">Afronden reservering</div>
-        
-    </div>
+   
+   <title>Step Overview Bar</title>
+          <div id="step-overview">
+            <button><a href="index.html" 
+              target="_parent">Home page</a></button>     
+            
+              <div class="step active">Reservering</div>
+              <div class="step">Betalings pagina</div>
+              <div class="step">Afronden reservering</div>
+              
+          </div>
     
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const steps = document.querySelectorAll('.step');
-            const stepText = document.getElementById('step-text');
-
-            steps.forEach((step, index) => {
-                step.addEventListener('click', () => {
-                    // Reset all steps to inactive
-                    steps.forEach(s => s.classList.remove('active'));
-
-                    // Activate the clicked step
-                    step.classList.add('active');
-
-                    // Update step text
-                    stepText.textContent = `Step ${index + 1}`;
-                });
-            });
-        });
-    </script>
-</body>
-</html>
- 
     <style>
-     
-        
+             
         body {
-            /* Set background properties */
+            
             background-image: url('images/cabin.jpg');
-            background-size: cover; /* Cover the entire viewport */
-            background-position: block; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            color: rgb(249, 247, 247); /* Text color, change as needed */
-            font-family: Arial, sans-serif; /* Specify font-family */
+            background-size: cover; 
+            background-position: block; 
+            background-repeat: no-repeat; 
+            color: rgb(249, 247, 247); 
+            font-family: Arial, sans-serif; 
         }
         
 
-        /* Optional: Add styles for the content on top of the background */
+        
         .content {
             padding: 20px;
         }
     </style>
 </head>
-<body>
+
 
     <style>
       
@@ -143,15 +118,19 @@
         border: none;
         cursor: pointer;
       }
+      .non-selectable {
+            color: #999; 
+            pointer-events: none; 
+        }
     </style>
    
     
-   <head>
-    <body>
+   
+   
       
    
   </head>
-  <body>
+ 
     <form action="connection2.php" method="post" id="reservationForm">
 
       <label for="name">Name:</label>
@@ -186,42 +165,113 @@
         <button type="submit"> submit info</button>
         
 
-        <!-- <button><div class="floating-button">
-          <a href="http://127.0.0.1:5500/Betalings%20pagina.html?slapen=spaghetti&extras=cake" 
-          target="_parent">Betalings pagina</a>
-        </div>
-        </button> -->
-
-        <!--<form id="menuForm">
-        <label for="Slapen">Kies slaap optie:</label>
-        <select id="slapen" name="slapen">
-          <option value="spaghetti">Tent 2x2 (50 euro)</option>
-          <option value="pizza">Tent 4x4 (100 euro)</option>
-          <option value="burger">Tent 6x6 (150 euro)</option>
-          <option value="burger">Eigen tent (geen kosten)</option>
-          <!-- Add more options as needed -->
         </select>
   
     </form>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.step');
+            const stepText = document.getElementById('step-text');
+
+            steps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    // Reset all steps to inactive
+                    steps.forEach(s => s.classList.remove('active'));
+
+                    // Activate the clicked step
+                    step.classList.add('active');
+
+                    // Update step text
+                    stepText.textContent = `Step ${index + 1}`;
+                });
+            });
+        });
+
       function submitReservation() {
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const date1 = document.getElementById("date 1").value;
-         //const date2 = document.getElementById("date 2").value;
-        // const date = document.getElementById("Slapen").value;
-        // const date = document.getElementById("Extras").value;
         
-
-        // You can perform additional validation here if needed
 
         alert(
           `Reservation Details:\nName: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${time}`
         );
         // You can send the reservation data to a server or perform other actions here
       }
+    
+
+     document.addEventListener('DOMContentLoaded', function() {          
+          const currentDate = new Date();
+          const currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+          
+          const datepicker = document.getElementById('date1');
+            
+            
+           datepicker.min = currentDateString;
+
+           datepicker.addEventListener('input', function() {
+              const selectedDate = new Date(this.value);
+              const allDates = document.querySelectorAll('input[type="date"]');
+                
+              allDates.forEach(function(date) {
+               const dateObj = new Date(date.value);
+
+               const oneyearlater =allDates 
+               
+    
+                 if (dateObj < currentDate) {
+                    date.classList.add('non-selectable');
+                  } else {
+                   date.classList.remove('non-selectable');
+                  }
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const currentDate = new Date();
+            const currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+          
+            const datepicker = document.getElementById('date2');
+            
+            
+            datepicker.min = currentDateString;
+
+            datepicker.addEventListener('input', function() {
+                const selectedDate = new Date(this.value);
+                const allDates = document.querySelectorAll('input[type="date"]');
+                
+                allDates.forEach(function(date) {
+                    const dateObj = new Date(date.value);
+
+                    if (vertrekDatum.getFullYear() > currentDate.getFullYear()) {
+    alert('U kunt niet in het volgende jaar reserveren. Selecteer een geldige vertrekdatum.');
+    event.preventDefault(); // Voorkom het indienen van het formulier
+  } else if (vertrekDatum > maxVertrekDatum) {
+    alert('U kunt maximaal voor één maand reserveren. Selecteer een geldige vertrekdatum.');
+    event.preventDefault(); // Voorkom het indienen van het formulier
+  }
+});
+                    
+                    if (dateObj < currentDate) {
+                        date.classList.add('non-selectable');
+                    } else {
+                        date.classList.remove('non-selectable');
+                    }
+                });
+            });
+        
+
+        
+        
+        
     </script>
+
   </body>
 </html>
 
