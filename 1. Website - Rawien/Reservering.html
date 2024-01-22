@@ -55,8 +55,8 @@
         }
     </style>
     <title>Step Overview Bar</title>
-</head>
-<body>
+
+
     <div id="step-overview">
       <button><a href="index.html" 
         target="_parent">Home page</a></button>     
@@ -87,30 +87,28 @@
             });
         });
     </script>
-</body>
-</html>
  
     <style>
      
         
         body {
-            /* Set background properties */
+            
             background-image: url('images/cabin.jpg');
-            background-size: cover; /* Cover the entire viewport */
-            background-position: block; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            color: rgb(249, 247, 247); /* Text color, change as needed */
-            font-family: Arial, sans-serif; /* Specify font-family */
+            background-size: cover; 
+            background-position: block; 
+            background-repeat: no-repeat; 
+            color: rgb(249, 247, 247); 
+            font-family: Arial, sans-serif; 
         }
         
 
-        /* Optional: Add styles for the content on top of the background */
+        
         .content {
             padding: 20px;
         }
     </style>
 </head>
-<body>
+
 
     <style>
       
@@ -143,15 +141,19 @@
         border: none;
         cursor: pointer;
       }
+      .non-selectable {
+            color: #999; 
+            pointer-events: none; 
+        }
     </style>
    
     
-   <head>
-    <body>
+   
+   
       
    
   </head>
-  <body>
+ 
     <form action="connection2.php" method="post" id="reservationForm">
 
       <label for="name">Name:</label>
@@ -201,19 +203,8 @@
         );
         // You can send the reservation data to a server or perform other actions here
       }
-    </script>
+    
 
-
-    <style>
-        .non-selectable {
-            color: #999; /* Stijl voor non-selecteerbare datums */
-            pointer-events: none; /* Maak non-selecteerbaar */
-        }
-    </style>
-
-
-
-<script>
      document.addEventListener('DOMContentLoaded', function() {          
           const currentDate = new Date();
           const currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
@@ -268,11 +259,6 @@
             });
         });
     </script>
-
-</body>
-</html>
-
-
 
   </body>
 </html>

@@ -21,23 +21,31 @@
 <br>
     
 <button><div class="floating-button">
-  <a href="Reservering.html" 
+  <a class="link" href="Reservering.html" 
   target="_parent">Reserveer hier</a>
 </div>
 </button>
 
 </body>
 <button><div class="floating-button">
-    <a href="Extras.html" 
+    <a class="link" href="Extras.html" 
     target="_parent">Extras</a>
   </div>
   </button>
 
-</head>
-<body>
- 
     <style>
-     
+.link{
+  text-decoration: none;
+}
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+      }
+
         
         body {
             /* Set background properties */
@@ -54,12 +62,7 @@
         .content {
             padding: 20px;
         }
-    </style>
-</head>
-<body>
 
-
-    <style>
         .image-container {
           display: flex;
         }
@@ -111,9 +114,12 @@
         background-color: rgba(0, 0, 0, 0.8);
       }
     </style>
+
+
+   
     <title>Automatic Image Slideshow</title>
-  </head>
-  <body>
+ 
+  
     <div class="slideshow-container">
       <div class="mySlides">
         <img src="images/tent 2x2.jpg" alt="Image 1" />
