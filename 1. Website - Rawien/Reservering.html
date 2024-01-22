@@ -264,6 +264,34 @@
                 });
             });
         });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const currentDate = new Date();
+            const currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+          
+            const datepicker = document.getElementById('date2');
+            
+            
+            datepicker.min = currentDateString;
+
+            datepicker.addEventListener('input', function() {
+                const selectedDate = new Date(this.value);
+                const allDates = document.querySelectorAll('input[type="date"]');
+                
+                allDates.forEach(function(date) {
+                    const dateObj = new Date(date.value);
+                    
+                    if (dateObj < currentDate) {
+                        date.classList.add('non-selectable');
+                    } else {
+                        date.classList.remove('non-selectable');
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
