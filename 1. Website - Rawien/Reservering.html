@@ -240,21 +240,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            var currentDate = new Date();
-            var currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+            const currentDate = new Date();
+            const currentDateString = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
 
           
-            var datepicker = document.getElementById('date1');
-            v
+            const datepicker = document.getElementById('date1');
+            
             
             datepicker.min = currentDateString;
 
             datepicker.addEventListener('input', function() {
-                var selectedDate = new Date(this.value);
-                var allDates = document.querySelectorAll('input[type="date"]');
+                const selectedDate = new Date(this.value);
+                const allDates = document.querySelectorAll('input[type="date"]');
                 
                 allDates.forEach(function(date) {
-                    var dateObj = new Date(date.value);
+                    const dateObj = new Date(date.value);
                     
                     if (dateObj < currentDate) {
                         date.classList.add('non-selectable');
