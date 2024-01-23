@@ -11,52 +11,8 @@
 <br>
 <br>
 </Br>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: left;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #step-overview {
-            display: flex;
-            width: 700px;
-            background-color: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .step {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            transition: background-color 0.3s ease;
-        }
-
-        .step:not(:last-child) {
-            border-right: 1px solid #fff;
-        }
-
-        .step.active {
-            background-color: #004080;
-        }
-
-        #step-text {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #007bff;
-        }
-    </style>
-   
    <title>Step Overview Bar</title>
-          <div id="step-overview">
+          <!-- <div id="step-overview">
             <button><a href="index.html" 
               target="_parent">Home page</a></button>     
             
@@ -64,71 +20,33 @@
               <div class="step">Betalings pagina</div>
               <div class="step">Afronden reservering</div>
               
-          </div>
+          </div> -->
     
-    <style>
-             
-        body {
-            
-            background-image: url('images/cabin.jpg');
-            background-size: cover; 
-            background-position: block; 
-            background-repeat: no-repeat; 
-            color: rgb(249, 247, 247); 
-            font-family: Arial, sans-serif; 
-        }
+          <header> 
+            <nav class="navbar">
+            <a href="#" class="logo">Relax & Enjoy.</a>  
         
-
+            <ul class="nav-menu">
         
-        .content {
-            padding: 20px;
-        }
-    </style>
-</head>
+              <li class="nav-item"> 
+                <a href="index.html" class="nav-link">Home</a>
+              </li> 
+              <li class="nav-item"> 
+                <a href="Reservering.html" class="nav-link">Boeking</a>
+              </li>     
+               <li class="nav-item"> 
+                <a href="contact.html" class="nav-link"></a>
+              </li>
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+        
+            </nav> 
+          </header>  
 
-
-    <style>
-      
-      body {
-        font-family: Arial, sans-serif;
-      }
-
-      form {
-        max-width: 400px;
-        margin: 20px auto;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      input,
-      select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 16px;
-        box-sizing: border-box;
-      }
-
-      button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-      }
-      .non-selectable {
-            color: #999; 
-            pointer-events: none; 
-        }
-    </style>
-   
-    
-   
-   
-      
-   
   </head>
  
     <form action="connection2.php" method="post" id="reservationForm">
@@ -145,10 +63,7 @@
       <label for="date2">Eind datum:</label>
       <input type="date" id="date2" name="date2" />
 
-      <!--<label for="email">Volwassenen:</label>
-      <input type="text" id="Volwassenen" name="Volwassenen" />-->
-
-      <label for="email">Volwas./Kind.:</label>
+      <label for="email">Volwas/Kind.:</label>
       <input type="text" id="kinderen" name="kinderen" />
 
   
@@ -156,12 +71,10 @@
         <select id="extra" name="extras">
           <option value="zwembad">Zwembad (10 euro)</option>
           <option value="geenzwembad">Geen zwembad</option>
-          <!--<option value="pie">Sauna (20 euro)</option>
-          <option value="pie">Massage (30 euro)</option>
-          <-- Add more options as needed -->
+         
         </select>
 
-        <button type="submit"> submit info</button>
+        <button type="submit"> Ga verder</button>
         
 
         </select>
@@ -216,9 +129,6 @@
                 
               allDates.forEach(function(date) {
                const dateObj = new Date(date.value);
-
-               const oneyearlater =allDates 
-               
     
                  if (dateObj < currentDate) {
                     date.classList.add('non-selectable');
@@ -248,13 +158,6 @@
                 allDates.forEach(function(date) {
                     const dateObj = new Date(date.value);
 
-                    if (vertrekDatum.getFullYear() > currentDate.getFullYear()) {
-    alert('U kunt niet in het volgende jaar reserveren. Selecteer een geldige vertrekdatum.');
-    event.preventDefault(); // Voorkom het indienen van het formulier
-  } else if (vertrekDatum > maxVertrekDatum) {
-    alert('U kunt maximaal voor één maand reserveren. Selecteer een geldige vertrekdatum.');
-    event.preventDefault(); // Voorkom het indienen van het formulier
-  }
 });
                     
                     if (dateObj < currentDate) {
@@ -266,10 +169,212 @@
             });
         
 
-        
+            document.addEventListener('DOMContentLoaded', function() {
+            const arrivalDateInput = document.getElementById('date1');
+            const departureDateInput = document.getElementById('date2');
+
+            arrivalDateInput.addEventListener('input', function() {
+                // Zorg ervoor dat de vertrekdatum niet eerder is dan de aankomstdatumphp -S 127.0.0.1:5500
+                if (departureDateInput.value < arrivalDateInput.value) {
+                    departureDateInput.value = arrivalDateInput.value;
+                }
+            });
+
+            departureDateInput.addEventListener('input', function() {
+                // Zorg ervoor dat de vertrekdatum niet eerder is dan de aankomstdatum
+                if (departureDateInput.value < arrivalDateInput.value) {
+                    departureDateInput.value = arrivalDateInput.value;
+                }
+            });
+        });
+
+
+
         
         
     </script>
+<!-- php -S 127.0.0.1:5500 -->
+<style>
+  *{
+margin: 0;
+padding: 0;    
+box-sizing: border-box;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+display: flex;
+flex-direction: column;
+}
+
+Header  {
+
+width: 100%;
+padding: 20px 30px;
+background-color: #007bffaa;
+outline: 2px solid #FFFF;
+}
+li{
+list-style: none;
+}
+
+a{
+color: #ffffff;
+text-decoration: none;
+font-size: 20px;
+
+}
+.navbar{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 24px; 
+}
+.nav-menu{
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 80px;
+
+}
+.logo{
+font-size: 1rem;
+}
+.nav-link{
+transition: 0.5s ease;
+}
+.nav-link:hover{
+color: #000000;
+
+}
+.hamburger{
+display: none;
+cursor: pointer;
+}
+.bar{
+display: block;
+width: 25px;
+height: 3px;
+margin: 5px auto;
+-webkit-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+background-color: #ffffff;
+}
+@media (max-width:768px){
+.hamburger{
+display: block;
+}
+
+.hamburger.active .bar:nth-child(2){
+opacity:0 ;
+}
+
+.hamburger.active .bar:nth-child(1){
+transform: translateY(8px)rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(1){
+transform: translateY(-8px)rotate(-45deg);
+}
+
+.nav-menu{
+position: fixed;
+left: -100%;
+top: 75px;
+gap: 0;
+flex-direction: column;
+background-color: #213f5d;
+width: 100%;
+text-align: center;
+transition: 0.4s;
+}
+
+.nav-item{
+margin: 16px 0;
+}
+.nav-menu.active{
+left: 0;
+}
+}
+  
+  
+
+  form {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border-color: azure;
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  
+  }
+  .non-selectable {
+        color: #999; 
+        pointer-events: none; 
+    }
+
+    
+
+    #step-overview {
+        display: flex;
+        width: 700px;
+        background-color: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .step {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+    .step:not(:last-child) {
+        border-right: 1px solid #fff;
+    }
+
+    .step.active {
+        background-color: #004080;
+    }
+
+    #step-text {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #007bff;
+    }
+    body {
+        
+        background-image: url('images/cabin.jpg');
+        background-size: cover; 
+      color: #ffff;
+     
+    }
+     .content {
+        padding: 10px;
+    }
+</style>
 
   </body>
 </html>
